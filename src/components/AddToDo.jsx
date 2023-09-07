@@ -3,7 +3,8 @@ import React, { useState } from "react"
 function AddToDo({ reload }) {
   const [task, setTask] = useState("")
 
-  const addTodo = () => {
+  const addTodo = (event) => {
+    event.preventDefault()
     if (task)
       fetch("http://localhost:9000/api/todos", {
         method: "POST",
@@ -16,7 +17,7 @@ function AddToDo({ reload }) {
   }
 
   return (
-    <div className="flex gap-2 mb-4">
+    <form className="flex gap-2 mb-4">
       <input
         className="border"
         type="text"
@@ -29,7 +30,7 @@ function AddToDo({ reload }) {
         onClick={addTodo}>
         +
       </button>
-    </div>
+    </form>
   )
 }
 

@@ -17,6 +17,9 @@ function ToDoList() {
 
   return (
     <section className="p-4 w-fit">
+      <p className="text-lg font-bold text-center">
+        {todos.filter((todo) => !todo.done).length}
+      </p>
       <AddToDo reload={setRefresh} />
       <div className="flex flex-col gap-2">
         {todos.map((todo) => {
